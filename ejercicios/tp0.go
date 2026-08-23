@@ -45,19 +45,30 @@ func Comparar(vector1 []int, vector2 []int) int {
 
 // Seleccion ordena el arreglo recibido mediante el algoritmo de selección.
 func Seleccion(vector []int) {
-
+	for i := len(vector); i > 0; i-- {
+		vectorAcortado := vector[:i]
+		posMaximo := Maximo(vectorAcortado)
+		Swap(&vector[i - 1], &vectorAcortado[posMaximo])
+	}
 }
 
 // Suma devuelve la suma de los elementos de un arreglo. En caso de no tener elementos, debe devolver 0.
 // Esta función debe implementarse de forma RECURSIVA. Se puede usar una función auxiliar (que sea
 // la recursiva).
 func Suma(vector []int) int {
-	return 0
+	var total int
+	if len(vector) == 0 {
+		return 0
+	}
+	total += vector[len(vector) - 1]
+	vectorNuevo := vector[:len(vector) - 1]
+	return total + Suma(vectorNuevo)
 }
 
 // EsCadenaCapicua devuelve si la cadena es un palíndromo. Es decir, si se lee igual al derecho que al revés.
 // Esta función debe implementarse de forma RECURSIVA. Se puede usar una función auxiliar (que sea
 // la recursiva).
 func EsCadenaCapicua(cadena string) bool {
+	
 	return false
 }
