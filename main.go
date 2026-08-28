@@ -24,6 +24,13 @@ func lectura(ruta string) []int{
 	return vector
 }
 
+func imprimirVectorOrdenado(vector []int) {
+	ejercicios.Seleccion(vector)
+	for i := 0; i < len(vector); i++ {
+		fmt.Println(vector[i])
+	}
+}
+
 func main() {
 	vector1 := lectura(RUTA_ARCHIVO_1)
 	vector2 := lectura(RUTA_ARCHIVO_2)
@@ -31,14 +38,8 @@ func main() {
 	igualdad := ejercicios.Comparar(vector1, vector2)
 	
 	if igualdad >= 0 {
-		ejercicios.Seleccion(vector1)
-		for i := 0; i < len(vector1); i++ {
-			fmt.Println(vector1[i])
-		}
+		imprimirVectorOrdenado(vector1)
 	} else {
-		ejercicios.Seleccion(vector2)
-		for i := 0; i < len(vector2); i++ {
-			fmt.Println(vector2[i])
-		}
+		imprimirVectorOrdenado(vector2)
 	}
 }
